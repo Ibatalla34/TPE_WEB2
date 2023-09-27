@@ -16,4 +16,4 @@ Descripcion:
 
  
 diagrama entidad relacion:
-![diagrama_entidad_relacion_tpe](/Diagrama_Entidad_Relacion.jpg)
+![diagrama_entidad_relacion_tpe](/DER_imagen.jpg)
