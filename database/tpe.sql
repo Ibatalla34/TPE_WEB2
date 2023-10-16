@@ -80,6 +80,17 @@ INSERT INTO `futbolistas` (`Id_Futbolistas`, `Nombre`, `Apellido`, `Edad`, `Pais
 (11, 'Mohamed', 'Salah', 31, 'Egipto', 7);
 
 --
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `Id_Usuarios` int(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Contraseña` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+--
 -- Índices para tablas volcadas
 --
 
