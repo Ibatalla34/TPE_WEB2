@@ -1,5 +1,4 @@
 <?php
-    require_once('controllers/TaskController.php');
     require_once('controllers/LoginController.php');
 
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
@@ -21,7 +20,4 @@
             $controller = new LoginController();
             $controller->logout();
             break;
-        case 'tarea':
-            $controller = new TaskController();
-            $controller->showTask($partesURL[1]);
     }
