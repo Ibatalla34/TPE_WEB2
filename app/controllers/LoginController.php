@@ -12,7 +12,7 @@ class LoginController {
     public function showLogin() {
         $this->view->showLogin();
     }
-}
+
 
 $user = $this->model->getByUsername($email);
 
@@ -27,5 +27,12 @@ $user = $this->model->getByUsername($email);
             $this->view->showLogin("Login incorrecto");
         }
        
-
+    public function logout() {
+        session_start();
+        session_destroy();
+        header('Location: ' . LOGIN);
+    }
+}
+    
+    
 
