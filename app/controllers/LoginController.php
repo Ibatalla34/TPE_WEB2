@@ -14,13 +14,13 @@ class LoginController {
     }
 
 
-$user = $this->model->getByUsername($email);
+$user = $this->model->getByUsername($user);
 
         var_dump($user);
         if (!empty($user) && password_verify($password, $user->password)) {
             session_start();
             $_SESSION['ID_USER'] = $user->id;
-            $_SESSION['USERNAME'] = $user->email;
+            $_SESSION['USERNAME'] = $user->username;
 
             header('Location: ver');
         } else {
@@ -33,6 +33,6 @@ $user = $this->model->getByUsername($email);
         header('Location: ' . LOGIN);
     }
 }
-    
+
     
 
