@@ -85,9 +85,13 @@ INSERT INTO `futbolistas` (`Id_Futbolistas`, `Nombre`, `Apellido`, `Edad`, `Pais
 
 CREATE TABLE `usuarios` (
   `Id_Usuarios` int(100) NOT NULL,
-  `Email` varchar(100) NOT NULL,
+  `Nombre` varchar(100) NOT NULL,
   `Contraseña` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO 'usuarios' ('Id_Usuarios', 'Nombre', 'Contraseña') VALUES
+(1, 'webadmin', 'admin');
 
 --
 --
