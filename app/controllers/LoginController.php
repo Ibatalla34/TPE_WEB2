@@ -16,9 +16,13 @@ class LoginController {
 
 $user = $this->model->getByUsername($email);
 
-        var_dump($email);
-        if (!empty($email) && password_verify($password, $email->password)) {
-            $this->view->showLogin("Login correcto");
+        var_dump($user);
+        if (!empty($user) && password_verify($password, $user->password)) {
+            session_start();
+            $_SESSION['ID_USER'] = $user->id;
+            $_SESSION['USERNAME'] = $user->email;
+
+            header('Location: ver');
         } else {
             $this->view->showLogin("Login incorrecto");
         }
