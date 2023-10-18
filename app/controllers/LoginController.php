@@ -13,3 +13,15 @@ class LoginController {
         $this->view->showLogin();
     }
 }
+
+$user = $this->model->getByUsername($email);
+
+        var_dump($email);
+        if (!empty($email) && password_verify($password, $email->password)) {
+            $this->view->showLogin("Login correcto");
+        } else {
+            $this->view->showLogin("Login incorrecto");
+        }
+       
+
+
