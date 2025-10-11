@@ -22,7 +22,7 @@ session_start();
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
 // accion por defecto si no se envia ninguna
-$action = 'lista'; 
+$action = 'listaJugador'; 
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -34,25 +34,27 @@ $request = new StdClass();
 $request = (new SessionMiddleware())->run($request);
 
 switch ($params[0]) {
-    case 'lista':
+    case 'listaJugador':
         $controller = new PlayerController();
         $controller->showPlayers($request);
         break;
     case 'jugador':
         $controller = new PlayerController();
-        $controller->ShowPlayerAlone();    
+        $request->id = $params[1];    
+        $controller->ShowPlayerAlone($request);
+      
      case 'nuevo':
         $controller = new PlayerController();
-        $controller-> newPlayer(); 
+     //   $controller-> newPlayer(); 
     case 'eliminar':
         $controller = new PlayerController();
-        $controller-> deletePlayer(); 
+       // $controller-> deletePlayer(); 
     case 'editar':
         $controller = new PlayerController();
-        $controller->editPlayer(); 
+        //$controller->editPlayer(); 
     case 'login':
         $controller = new AuthController();
-        $controller->showLogin($request);
+        //$controller->showLogin($request);
         break;
 
     default: 

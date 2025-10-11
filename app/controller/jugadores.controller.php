@@ -19,6 +19,12 @@ class PlayerController{
         $this->view->showPlayers($players);
      }
 
+     function ShowPlayerAlone($request){
+        $player = $this->model->get($request->id);
+        $this->view->ShowPlayerAlone($player);
+
+     }
+
 
 
 }

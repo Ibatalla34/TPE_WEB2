@@ -3,7 +3,7 @@
 
         <ul >
             <?php foreach($players as $player) { ?>
-                <li>  <b> <?= $player->nombre ?></b>
+                <li>  <a href="jugador/<?= $player->id ?>" > <?= $player->nombre ?></a>
                         <p> <?= $player->id_equipos ?></p> 
                 </li>
             <?php } ?>
