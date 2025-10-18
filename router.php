@@ -1,6 +1,7 @@
 <?php
 require_once './app/controller/jugadores.controller.php';
 require_once './app/controller/auth.controller.php';
+require_once './app/controller/equipos.controller.php';
 require_once './app/middlewere/session.middlewere.php';
 
 
@@ -42,7 +43,11 @@ switch ($params[0]) {
         $controller = new PlayerController();
         $request->id = $params[1];    
         $controller->ShowPlayerAlone($request);
-      
+        break;
+    case 'equipos':
+        $controller = new EquipoController();
+        $controller->showEquipos();
+        break;
      case 'nuevo':
         $controller = new PlayerController();
      //   $controller-> newPlayer(); 
