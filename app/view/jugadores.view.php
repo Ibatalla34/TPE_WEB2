@@ -3,29 +3,26 @@
 class PlayerView{
 
 
-    function showPlayers($players){
+    public function showPlayers($players){
          $count = count($players);
 
          require_once './templates/listar.jugadores.phtml';
+         require_once './templates/form.add.player.phtml';
     }
  
     //revisar en las clases practicas por tema de buena practica--------------------------------------------------------------------
-    function ShowPlayerAlone($player){
-        ?>
-        <h1><?=$player->nombre?></h1>
+    public function ShowPlayerAlone($jugador){
+        require_once './templates/datos.jugador.phtml';
+    }
 
-        <p>equipo: <?=$player->id_equipos?></p>
-        <p>pais: <?=$player->pais ?></p>
-        <p>pierna buena: <?=$player->pierna_buena?></p>
-        <p>posicion <?=$player->posicion?></p>
-        <p>fecha de nacimiento: <?=$player->fecha_nacimiento?></p>
-        <p>altura: <?=$player->altura?></p>
-        <?php
+    function showError($error) {
+        echo "<h1>$error</h1>";
     }
 
 
 }
 
+    
 
 
 

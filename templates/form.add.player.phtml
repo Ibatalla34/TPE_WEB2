@@ -1,0 +1,54 @@
+
+
+    <form action="nuevo" method="POST">
+
+     <div class="row">
+        <div class="col-9">
+            <div class="form-group">
+                <label>nombre</label>
+                <input required name="nombre" type="text" class="form-control">
+            </div>
+        </div>
+         <label>Equipo</label>
+        <select required name="equipo">
+            <option value=""></option>
+        </select>
+         <label>Pierna Buena</label>
+           <select required name="pieBueno">
+            <option value="izq">izquierdo</option>
+            <option value="der">derecho</option>
+            <option value="amb">ambidiestro</option>
+        </select>
+        <div>
+        <label>Pais</label>
+        <input required name="pais" type="text" >
+        </div>
+        </select>
+
+             <label>Posicion</label>
+           <select required name="posicion">
+            <option value="DF">Defensor</option>
+            <option value="LT">Lateral</option>
+            <option value="EXD">extremo derecho</option>
+            <option value="EXI">Extremo izquierdo</option>
+            <option value="DC">Delantero</option>
+            <option value="MC">Mediocampista</option>
+            <option value="PO">Portero</option>
+        </select>
+        <div>
+         <label>Fecha De Nacimiento</label>
+        <input type="date" name="nacimiento">
+        </div>
+         <label>Altura(cm)</label>
+         <input type="number" required name="altura">
+
+
+
+
+
+
+ <button type="submit" class="btn btn-primary mt-2">Agregar</button>
+
+</form>
+
+

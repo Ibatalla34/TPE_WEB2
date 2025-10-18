@@ -26,7 +26,12 @@ class PlayerModel{
 
         return $players;
     }
+  
 
+    public function insert($equipo,$nombre,$pais,$pieBueno,$posicion,$nacimiento,$altura){
+      $query = $this->db->prepare("INSERT INTO jugadores(`id_equipos`, `nombre`, `pais`, `pierna_buena`, `posicion`, `fecha_nacimiento`, `altura`) VALUES(?,?,?,?,?,?,?)");
+      $query->execute([$equipo,$nombre,$pais,$pieBueno,$posicion,$nacimiento,$altura]);
+    }
 
 }
 

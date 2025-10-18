@@ -54,7 +54,7 @@ switch ($params[0]) {
         //$controller->editPlayer(); 
     case 'login':
         $controller = new AuthController();
-        //$controller->showLogin($request);
+        $controller->showLogin($request);
         break;
 
     default: 
