@@ -1,0 +1,18 @@
+<?php
+
+class EquipoView{
+
+    public function showEquipos($equipos){
+        require 'templates/layout/header.phtml';
+        echo "<h1>Equipos</h1>";
+        echo "<ul>";
+        foreach($equipos as $equipo){
+            echo "<li><a href='equipo/$equipo->id'>$equipo->nombre</a></li>";
+        }
+        echo "</ul>";
+        require 'templates/layout/footer.phtml';
+    }
+}
+
+
+?>
