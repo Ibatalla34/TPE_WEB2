@@ -46,7 +46,12 @@ switch ($params[0]) {
         break;
     case 'equipos':
         $controller = new EquipoController();
-        $controller->showEquipos();
+        $controller->showAll();
+        break;
+    case 'equipo':
+        $controller = new EquipoController();
+        $request->id = $params[1];    
+        $controller->show($request);
         break;
      case 'nuevo':
         $controller = new PlayerController();
