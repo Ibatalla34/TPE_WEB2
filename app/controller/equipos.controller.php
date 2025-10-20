@@ -14,9 +14,17 @@ class EquipoController
         $this->view = new EquipoView();
     }
 
-    function showEquipos()
+    function showAll()
     {
         $equipos = $this->model->getAll();
-        $this->view->showEquipos($equipos);
+        $this->view->showAll($equipos);
+    }
+
+
+    function show($request)
+    {
+        
+        $jugadores = $this->model->select($request->id);
+        $this->view->show($jugadores);
     }
 }

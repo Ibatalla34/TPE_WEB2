@@ -1,22 +1,32 @@
 <?php
-class EquipoModel{
+require_once './app/models/jugadores.model.php';
+  class EquipoModel
+  {
     private $db;
 
-    function __construct() {
-     // 1. abro conexión con la DB
-     $this->db = new PDO('mysql:host=localhost;dbname=futbol;charset=utf8', 'root', '');
+    function __construct()
+    {
+      
+      $this->db = new PDO('mysql:host=localhost;dbname=futbol;charset=utf8', 'root', '');
     }
 
-      public function getAll() {
-        // 2. ejecuto la consulta SQL (SELECT * FROM tareas)
-        $query = $this->db->prepare('SELECT * FROM equipos');
-        $query->execute();
+    public function getAll()
+    {
 
-        // 3. obtengo los resultados de la consulta
-        $equipos = $query->fetchAll(PDO::FETCH_OBJ);
-
-        return $equipos;
+      $query = $this->db->prepare('SELECT * FROM equipos');
+      $query->execute();
+      $equipos = $query->fetchAll(PDO::FETCH_OBJ);
+      return $equipos;
     }
-}
 
+    public function select($id)
+    {
+      $equipo = $this->db->prepare('SELECT * FROM equipos WHERE id = ?');
+      $equipo->execute([$id]);
+      $equipo = $equipo->fetch(PDO::FETCH_OBJ);
+      $jugadores = new PlayerModel();
+      $query = $jugadores->select($id);
+      return[$query,$equipo];
+    }
+  }
 ?>

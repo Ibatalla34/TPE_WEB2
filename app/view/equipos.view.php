@@ -2,7 +2,7 @@
 
 class EquipoView{
 
-    public function showEquipos($equipos){
+    public function showAll($equipos){
         require 'templates/layout/header.phtml';
         echo "<h1>Equipos</h1>";
         echo "<ul>";
@@ -12,7 +12,17 @@ class EquipoView{
         echo "</ul>";
         require 'templates/layout/footer.phtml';
     }
+
+    public function show($jugadores){
+        require 'templates/layout/header.phtml';
+        echo "<h1>Jugadores de ".$jugadores[1]->nombre."</h1>";
+        echo "<ul>";
+        foreach($jugadores[0] as $jugador){
+            echo "<li><a href='jugador/$jugador->id'>$jugador->nombre</a></li>";
+        }
+        echo "</ul>";
+        require 'templates/layout/footer.phtml';
+    }
+
 }
-
-
 ?>
