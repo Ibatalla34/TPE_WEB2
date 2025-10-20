@@ -5,7 +5,5 @@ class AuthView {
         require_once './templates/form_login.phtml';
     }
 
-    public function showError($error, $user) {
-        echo "<h1>$error</h1>";
-    }
+ 
 }

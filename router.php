@@ -45,7 +45,7 @@ switch ($params[0]) {
       
      case 'nuevo':
         $controller = new PlayerController();
-     //   $controller-> newPlayer(); 
+        $controller-> newPlayer(); 
     case 'eliminar':
         $controller = new PlayerController();
        // $controller-> deletePlayer(); 
