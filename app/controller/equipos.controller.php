@@ -20,6 +20,7 @@ class EquipoController
         $this->view->showAll($equipos);
     }
 
+
     function show($request)
     {
         $equipo = $this->model->select($request->id);
