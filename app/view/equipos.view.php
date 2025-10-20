@@ -13,17 +13,16 @@ class EquipoView{
         require 'templates/layout/footer.phtml';
     }
 
-    public function show ($jugadores){
+    public function show($jugadores){
         require 'templates/layout/header.phtml';
-        echo "<h1>Jugadores</h1>";
+        echo "<h1>Jugadores de ".$jugadores[1]->nombre."</h1>";
         echo "<ul>";
-         foreach($jugadores as $jugador){
+        foreach($jugadores[0] as $jugador){
             echo "<li><a href='jugador/$jugador->id'>$jugador->nombre</a></li>";
         }
         echo "</ul>";
         require 'templates/layout/footer.phtml';
     }
+
 }
-
-
 ?>

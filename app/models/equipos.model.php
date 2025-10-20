@@ -21,9 +21,12 @@ require_once './app/models/jugadores.model.php';
 
     public function select($id)
     {
+      $equipo = $this->db->prepare('SELECT * FROM equipos WHERE id = ?');
+      $equipo->execute([$id]);
+      $equipo = $equipo->fetch(PDO::FETCH_OBJ);
       $jugadores = new PlayerModel();
       $query = $jugadores->select($id);
-      return $query;
+      return[$query,$equipo];
     }
   }
 ?>

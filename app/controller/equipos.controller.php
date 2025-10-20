@@ -23,7 +23,8 @@ class EquipoController
 
     function show($request)
     {
-        $equipo = $this->model->select($request->id);
-        $this->view->show($equipo);
+        
+        $jugadores = $this->model->select($request->id);
+        $this->view->show($jugadores);
     }
 }
