@@ -25,6 +25,6 @@ class EquipoController
     {
         
         $jugadores = $this->model->select($request->id);
-        $this->view->show($jugadores);
+        $this->view->show($jugadores,$request->user);
     }
 }

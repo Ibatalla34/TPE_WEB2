@@ -25,7 +25,7 @@ require_once './app/models/jugadores.model.php';
       $equipo->execute([$id]);
       $equipo = $equipo->fetch(PDO::FETCH_OBJ);
       $jugadores = new PlayerModel();
-      $query = $jugadores->select($id);
+      $query = $jugadores->selectByTeam($id);
       return[$query,$equipo];
     }
 

@@ -23,16 +23,20 @@ class AuthController {
 
         $user = $_POST['user'];
         $password = $_POST['password'];
-
         $userFromDB = $this->userModel->getByUser($user);
-
+    
         if($userFromDB && password_verify($password, $userFromDB->password)) {
             $_SESSION['USER_ID'] = $userFromDB->id;
             $_SESSION['USER_NAME'] = $userFromDB->usuario;
             header("Location: ".BASE_URL);
             return;
-        } else {
+        } else  {
             return $this->view->showLogin("Usuario o contraseña incorrecta", $request->user);
         }
+    }
+
+    public function logout() {
+        session_destroy();
+        header("Location: ".BASE_URL."login");
     }
 }
