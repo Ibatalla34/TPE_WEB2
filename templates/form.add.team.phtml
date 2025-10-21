@@ -1,0 +1,31 @@
+ <?php
+    require 'templates/layout/header.phtml' ?>
+    <form action="insertTeam" method="POST">
+
+        <div class="row">
+            <div class="col-9">
+                <div class="form-group">
+                    <label>nombre</label>
+                    <input required name="nombre" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+            <label>Pais</label>
+            <input name="pais" type="text">
+            </div>
+            <div class="form-group">
+            <label>Ciudad</label>
+            <input name="ciudad" type="text">
+            </div>
+            <div>
+            <label>Año de fundacion</label>
+            <input required name="fundacion" type="text" >
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-2">Agregar</button>
+
+    </form>
+
+    <?php require 'templates/layout/footer.phtml' ?>

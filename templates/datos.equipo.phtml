@@ -4,8 +4,19 @@
         echo "<ul>";
         foreach($equipos as $equipo){
             echo "<li><a href='equipo/$equipo->id'>$equipo->nombre</a></li>";
+            echo "<li>Pais: $equipo->pais</li>";
+            echo "<li>Ciudad: $equipo->ciudad</li>";
+            echo "<li>Año de fundacion: $equipo->fundacion</li>";
+            if ($user){
+                echo "<a class='btn btn-sm btn-outline-danger' href='deleteTeam/$equipo->id'>Eliminar</a>";
+                echo "<a class='btn btn-outline-warning' href='editTeam/$equipo->id'>Editar</a>";
+            }
         }
         echo "</ul>";
+        
+        if ($user){
+            echo "<a href='addTeam'>Agregar Equipo</a>";
+        }
         require 'templates/layout/footer.phtml';
 
 ?>

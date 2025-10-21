@@ -70,10 +70,10 @@ switch ($params[0]) {
         $controller-> eliminarJugador($request); 
         break;
     case 'cambiar':
-     $request = (new GuardMiddleware())->run($request);
-     $controller = new PlayerController();
-     $request->id= $params[1];
-    $controller->editarJugador($request);
+        $request = (new GuardMiddleware())->run($request);
+        $controller = new PlayerController();
+        $request->id= $params[1];
+        $controller->editarJugador($request);
     break; 
     case 'editar':
         $controller = new PlayerController();
@@ -92,7 +92,31 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->logout();
         break;
-
+    case 'addTeam':
+        $request = (new GuardMiddleware())->run($request);
+        $controller = new EquipoController();
+        $controller->addTeam($request);
+        break;
+    case 'insertTeam':
+        $controller = new EquipoController();
+        $controller->insert();
+        break;
+    case 'editTeam':
+        $controller = new EquipoController();
+        $id = $params[1];
+        $controller->editTeam($id,$request);
+        break;
+    case 'updateTeam':
+        $controller = new EquipoController();
+        $id = $params[1];
+        $controller->updateTeam($id);
+        break;
+    case 'deleteTeam':
+        $request = (new GuardMiddleware())->run($request);
+        $controller = new EquipoController();
+        $request->id = $params[1];
+        $controller->delete($request->id);
+        break;
     default: 
         echo "404 Page Not Found";
         break;
