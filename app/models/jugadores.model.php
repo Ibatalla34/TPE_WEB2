@@ -41,6 +41,7 @@ class PlayerModel{
       $query = $this->db->prepare(" UPDATE jugadores Set id_equipos = ?, nombre = ?, pais = ?, pierna_buena = ?, posicion = ?, fecha_nacimiento = ? , altura = ?  WHERE id=?" );
       $query->execute([$equipo,$nombre,$pais,$pieBueno,$posicion,$nacimiento,$altura, $id]);
     }
+
   }
   
   

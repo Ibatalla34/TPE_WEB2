@@ -29,13 +29,5 @@ require_once './app/models/jugadores.model.php';
       return[$query,$equipo];
     }
 
-
-
-     public function darEquipo ($player) {
-      $query = $this->db->prepare('SELECT * FROM equipos WHERE nombre = ?');
-      $query->execute([$player]);
-      $equipo = $query->fetchAll(PDO::FETCH_OBJ);
-      return $equipo;
-    }
   }
 ?>

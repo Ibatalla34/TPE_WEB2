@@ -9,16 +9,16 @@ class PlayerView{
          require_once './templates/listar.jugadores.phtml';
     }
 
-    public function agregarJugador(){
+    public function agregarJugador($user){
           require_once './templates/form.add.player.phtml';
     }
  
     
-    public function ShowPlayerAlone($jugador){ 
+    public function ShowPlayerAlone($jugador,$user){ 
           require_once './templates/datos.jugador.phtml';
     }
 
-    public function editar($player){
+    public function editar($player,$user){
         require_once './templates/form.edit.player.phtml';
     }
 

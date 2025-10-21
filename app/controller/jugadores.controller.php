@@ -21,7 +21,8 @@ class PlayerController{
 
      function ShowPlayerAlone($request){
         $jugador = $this->model->get($request->id);
-        $this->view->ShowPlayerAlone($jugador);
+
+         $this->view->ShowPlayerAlone($jugador,$request->user);
 
      }
 
@@ -55,13 +56,13 @@ class PlayerController{
        header('Location: ' . BASE_URL);
      }
 
-     function agregarJugador(){
-      $this->view->agregarJugador();
+     function agregarJugador($request){
+      $this->view->agregarJugador($request->user);
      }
 
-     function editarJugador($id){
-         $player = $this->model->get($id);
-         $this->view->editar($player);
+     function editarJugador($request){
+         $player = $this->model->get($request->id);
+         $this->view->editar($player,$request->user);
      }
      function editPlayer($id){
        if(!isset($_POST['nombre']) || empty($_POST['nombre'])||!isset($_POST['pais']) || empty($_POST['pais'])||!isset($_POST['altura']) || empty($_POST['altura'])){

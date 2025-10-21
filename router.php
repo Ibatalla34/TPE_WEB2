@@ -3,6 +3,7 @@ require_once './app/controller/jugadores.controller.php';
 require_once './app/controller/auth.controller.php';
 require_once './app/controller/equipos.controller.php';
 require_once './app/middlewere/session.middlewere.php';
+require_once './app/middlewere/guard.middlewere.php';
 
 
 
@@ -54,22 +55,25 @@ switch ($params[0]) {
         $controller->show($request);
         break;
         case 'agregar':
+        $request = (new GuardMiddleware())->run($request);
         $controller = new PlayerController();
-        $controller-> agregarJugador(); 
+        $controller-> agregarJugador($request); 
          break;
      case 'nuevo':
         $controller = new PlayerController();
         $controller-> newPlayer(); 
          break;
     case 'eliminar':
+        $request = (new GuardMiddleware())->run($request);
         $controller = new PlayerController();
-        $id= $params[1];
-        $controller-> eliminarJugador($id); 
+        $request->id= $params[1];
+        $controller-> eliminarJugador($request); 
         break;
     case 'cambiar':
+     $request = (new GuardMiddleware())->run($request);
      $controller = new PlayerController();
-     $id= $params[1];
-    $controller->editarJugador($id);
+     $request->id= $params[1];
+    $controller->editarJugador($request);
     break; 
     case 'editar':
         $controller = new PlayerController();
