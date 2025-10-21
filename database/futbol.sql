@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2025 a las 21:46:35
+-- Tiempo de generación: 21-10-2025 a las 02:27:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -82,6 +82,25 @@ INSERT INTO `jugadores` (`id`, `id_equipos`, `nombre`, `pais`, `pierna_buena`, `
 (11, 6, 'adeyemi', 'alemania', 'izq', 'ED', '2002-07-01', 1.8),
 (12, 6, 'Sabitzer', 'Austria', 'der', 'MC', '2003-07-24', 1.78);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` char(72) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `username`, `password`) VALUES
+(1, 'admin', '$2y$10$gLMupe3h4onQKczXSOACz.92P9GvqD3IF9roEcKk.AG57YxVVL2Ha');
+
 --
 -- Índices para tablas volcadas
 --
@@ -100,6 +119,12 @@ ALTER TABLE `jugadores`
   ADD KEY `id_equipos` (`id_equipos`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -113,7 +138,13 @@ ALTER TABLE `equipos`
 -- AUTO_INCREMENT de la tabla `jugadores`
 --
 ALTER TABLE `jugadores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

@@ -24,3 +24,10 @@ ademas cada equipo tendra un nombre, un pais, una ciudad y su año  de fundacion
 ![der](DER.png)
 ## Sql
 [SQL](futbol.sql)
+
+
+## usuario y contraseña para acceder
+
+usuario: admin
+contraseña: 1234
+
