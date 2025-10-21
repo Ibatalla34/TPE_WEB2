@@ -1,28 +1,26 @@
+
 <?php require 'templates/layout/header.phtml' ?>
 
-    <form action="nuevo" method="POST">
-
+<form action="editar/<?php echo($player[0]->id)?>" method="POST">
      <div class="row">
         <div class="col-9">
             <div class="form-group">
                 <label>nombre</label>
-                <input required name="nombre" type="text" class="form-control">
+                <input required name="nombre" type="text" class="form-control" value=" <?php echo($player[0]->nombre)?>">
             </div>
         </div>
         <div class="form-group">
          <label>Equipo</label>
-        <select class="form-select form-select-sm" aria-label="Small select example" required name="equipo">
+        <select class="form-select form-select-sm" aria-label="Small select example" required name="equipo"? value=" <?php echo($player[0]->id_equipos)?>">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
-             <option value="5">5</option>
-              <option value="6">6</option>
         </select>
         </div>
         <div class="form-group">
          <label>Pierna Buena:</label>
-           <select class="form-select form-select-sm" aria-label="Small select example" required name="pieBueno">
+           <select class="form-select form-select-sm" aria-label="Small select example" required name="pieBueno"value="<?php echo($player[0]->pierna_buena)?>">
             <option value="izq">izquierdo</option>
             <option value="der">derecho</option>
             <option value="amb">ambidiestro</option>
@@ -30,13 +28,13 @@
         </div>
         <div>
         <label>Pais</label>
-        <input required name="pais" type="text" >
+        <input required name="pais" type="text" value="<?php echo($player[0]->pais)?>" >
         </div>
         <div class="form-group">
         </select>
 
              <label>Posicion:</label>
-           <select class="form-select form-select-sm" aria-label="Small select example" required name="posicion">
+           <select class="form-select form-select-sm" aria-label="Small select example" required name="posicion"value=" <?php echo($player[0]->posicion)?>">
             <option value="DF">Defensor</option>
             <option value="LT">Lateral</option>
             <option value="EXD">extremo derecho</option>
@@ -48,22 +46,19 @@
         </div>
         <div>
          <label>Fecha De Nacimiento</label>
-        <input type="date" name="nacimiento">
+        <input type="date" name="nacimiento" value="<?php echo($player[0]->fecha_nacimiento)?>">
         </div>
         <div class="form-group">
          <label>Altura(cm)</label>
-         <input type="number" required name="altura">
+         <input type="number" required name="altura" value=" <?php echo($player[0]->altura)?>">
          </div>
 
 
 
 
 
-
- <button type="submit" class="btn btn-primary mt-2">Agregar</button>
+ <button type="submit" class="btn btn-primary mt-2">Modificar</button>
 
 </form>
 
 <?php require 'templates/layout/footer.phtml' ?>
-
-

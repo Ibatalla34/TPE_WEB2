@@ -2,7 +2,7 @@
 
 class EquipoView{
 
-    public function showAll($equipos){
+    public function showAll($equipos,$user){
         require 'templates/layout/header.phtml';
         echo "<h1>Equipos</h1>";
         echo "<ul>";

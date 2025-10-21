@@ -46,25 +46,43 @@ switch ($params[0]) {
         break;
     case 'equipos':
         $controller = new EquipoController();
-        $controller->showAll();
+        $controller->showAll($request);
         break;
     case 'equipo':
         $controller = new EquipoController();
         $request->id = $params[1];    
         $controller->show($request);
         break;
+        case 'agregar':
+        $controller = new PlayerController();
+        $controller-> agregarJugador(); 
+         break;
      case 'nuevo':
         $controller = new PlayerController();
         $controller-> newPlayer(); 
+         break;
     case 'eliminar':
         $controller = new PlayerController();
-       // $controller-> deletePlayer(); 
+        $id= $params[1];
+        $controller-> eliminarJugador($id); 
+        break;
+    case 'cambiar':
+     $controller = new PlayerController();
+     $id= $params[1];
+    $controller->editarJugador($id);
+    break; 
     case 'editar':
         $controller = new PlayerController();
-        //$controller->editPlayer(); 
+        $id= $params[1];
+        $controller->editPlayer($id);
+         break; 
     case 'login':
         $controller = new AuthController();
         $controller->showLogin($request);
+        break;
+    case 'do_login':
+        $controller = new AuthController();
+        $controller->doLogin($request);
         break;
 
     default: 

@@ -1,13 +1,14 @@
-<?php require 'templates/layout/header.phtml' ?>
+<?php require 'templates/layout/header.phtml'; ?>
        
-          
-        <h1><?= $jugador->nombre?></h1>
+                  
 
-        <p>equipo: <?=$jugador->id_equipos?></p>
-        <p>pais: <?=$jugador->pais ?></p>
-        <p>pierna buena: <?=$jugador->pierna_buena?></p>
-        <p>posicion <?=$jugador->posicion?></p>
-        <p>fecha de nacimiento: <?=$jugador->fecha_nacimiento?></p>
-        <p>altura: <?=$jugador->altura?></p>
+        <h1><?= $jugador[0]-> nombre ?></h1>
 
-<?php require 'templates/layout/footer.phtml' ?>
+        <p>equipo: <?$equipo->nombre;?></p>
+        <p>pais: <?=$jugador[0]->pais; ?></p>
+        <p>pierna buena: <?=$jugador[0]->pierna_buena?></p>
+        <p>posicion <?=$jugador[0]->posicion?></p>
+        <p>fecha de nacimiento: <?=$jugador[0]->fecha_nacimiento?></p>
+        <p>altura: <?=$jugador[0]->altura?>cm</p>
+
+<?php require 'templates/layout/footer.phtml'; ?>

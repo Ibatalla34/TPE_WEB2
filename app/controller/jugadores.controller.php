@@ -16,7 +16,7 @@ class PlayerController{
     
      function showPlayers($request){
         $players = $this->model->getAll();
-        $this->view->showPlayers($players);
+        $this->view->showPlayers($players,$request->user);
      }
 
      function ShowPlayerAlone($request){
@@ -39,13 +39,48 @@ class PlayerController{
 
         $id = $this-> model->insert($equipo,$nombre,$pais,$pieBueno,$posicion,$nacimiento,$altura);
 
-        if (!$id) {
-            return 0;// $this->view->showError('Error la insertar tarea');
-        } 
-
-        // redirijo al home
-        header('Location: ' . BASE_URL);
+         header('Location: ' . BASE_URL);
      }
+
+
+     function eliminarjugador($id){
+
+      $player = $this->model->get($id);
+      if (!$player) {
+            return $this->view->showError("No existe la tarea con el id=$id");
+        }
+
+       $this->model->deletePlayer($id); 
+
+       header('Location: ' . BASE_URL);
+     }
+
+     function agregarJugador(){
+      $this->view->agregarJugador();
+     }
+
+     function editarJugador($id){
+         $player = $this->model->get($id);
+         $this->view->editar($player);
+     }
+     function editPlayer($id){
+       if(!isset($_POST['nombre']) || empty($_POST['nombre'])||!isset($_POST['pais']) || empty($_POST['pais'])||!isset($_POST['altura']) || empty($_POST['altura'])){
+         return $this->view->showError("falta completar");
+      }  
+         
+         $nombre = $_POST['nombre'];
+        $equipo = $_POST['equipo'];
+        $pieBueno = $_POST['pieBueno'];
+        $pais = $_POST['pais'];
+        $posicion = $_POST['posicion'];
+        $nacimiento = $_POST['nacimiento'];
+        $altura = $_POST['altura'];
+        
+        $this->model->editPlayer($equipo,$nombre,$pais,$pieBueno,$posicion,$nacimiento,$altura,$id);
+      
+         header('Location: ' . BASE_URL);
+    
+      }
 
 
 

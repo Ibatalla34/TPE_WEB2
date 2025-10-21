@@ -3,16 +3,23 @@
 class PlayerView{
 
 
-    public function showPlayers($players){
+    public function showPlayers($players,$user){
          $count = count($players);
 
          require_once './templates/listar.jugadores.phtml';
-         require_once './templates/form.add.player.phtml';
+    }
+
+    public function agregarJugador(){
+          require_once './templates/form.add.player.phtml';
     }
  
-    //revisar en las clases practicas por tema de buena practica--------------------------------------------------------------------
-    public function ShowPlayerAlone($jugador){
-        require_once './templates/datos.jugador.phtml';
+    
+    public function ShowPlayerAlone($jugador){ 
+          require_once './templates/datos.jugador.phtml';
+    }
+
+    public function editar($player){
+        require_once './templates/form.edit.player.phtml';
     }
 
     function showError($error) {

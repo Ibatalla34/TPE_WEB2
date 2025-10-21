@@ -14,10 +14,10 @@ class EquipoController
         $this->view = new EquipoView();
     }
 
-    function showAll()
+    function showAll($request)
     {
         $equipos = $this->model->getAll();
-        $this->view->showAll($equipos);
+        $this->view->showAll($equipos,$request->user);
     }
 
 

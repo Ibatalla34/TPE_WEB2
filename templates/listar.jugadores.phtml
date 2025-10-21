@@ -1,17 +1,22 @@
 <?php require 'templates/layout/header.phtml' ?>
 
 
-        <ul >
+        <ul class="list-group list-group-numbered">
             <?php foreach($players as $player) { ?>
-                <li>  <a href="jugador/<?= $player->id ?>" > <?= $player->nombre ?></a>
-                        <p> <?= $player->id_equipos ?></p> 
+                <li class="list-group-item d-flex justify-content-between align-items-start"> <div class="ms-2 me-auto">
+                       <div> <a href="jugador/<?= $player->id ?>" > <?= $player->nombre ?></a></div>
+                        <div> <?= $player->id_equipos ?> </div>
+                        <?php if($user):?>
+                         <a class="btn btn-sm btn-outline-danger " href="eliminar/<?= $player->id ?>">Eliminar</a>
+                          <a class="btn btn-outline-warning" href="cambiar/<?= $player->id ?>">Editar</a>
+                          <?php endif?>
+                         </div> 
+
                 </li>
             <?php } ?>
         </ul>
-                <button href="nuevo" >agregar jugador</button>
-                <button>eliminar jugador</button>
-                <button>editar items</button>
-        <p class="mt-3"><small>Mostrando <?=$count?> futbolistas</small></p>
+               <?php if($user):?> <a href="agregar">Agregar Jugador</a><?php endif?>
+   
   
 
 <?php require 'templates/layout/footer.phtml' ?>
