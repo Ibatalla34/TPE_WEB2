@@ -21,9 +21,9 @@ ademas cada equipo tendra un nombre, un pais, una ciudad y su año  de fundacion
 
 ## diagrama entidad relacion 
 
-![der](DER.png)
+![der](./database/DER.png)
 ## Sql
-[SQL](futbol.sql)
+[SQL](./database/futbol.sql)
 
 
 ## usuario y contraseña para acceder
