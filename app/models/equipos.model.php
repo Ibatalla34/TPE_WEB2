@@ -4,10 +4,10 @@ class EquipoModel
 {
   private $db;
 
-  function __construct()
-  {
-
-    $this->db = new PDO('mysql:host=localhost;dbname=futbol;charset=utf8', 'root', '');
+  function __construct(){
+          include_once './config.php';
+       $conex = new db(); 
+        $this->db = $conex->conexion(); 
   }
 
   public function getAll()

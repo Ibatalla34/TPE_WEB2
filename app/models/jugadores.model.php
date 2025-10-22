@@ -4,18 +4,17 @@ class PlayerModel{
      private $db;
 
     function __construct() {
-     $this->db = new PDO('mysql:host=localhost;dbname=futbol;charset=utf8', 'root', '');
+     include_once './config.php';
+       $conex = new db(); 
+        $this->db = $conex->conexion(); 
     }
 
       public function get($id) {
        
         $query = $this->db->prepare("SELECT j.id, j.nombre as nombre_j , j.pais as pais_j ,j.pierna_buena , j.posicion, j.fecha_nacimiento, j.altura , e.nombre as nombre_e FROM jugadores j INNER JOIN equipos e ON j.id_equipos = e.id WHERE j.id = ? ");
         $query->execute([$id]);
-        $player = $query->fetchAll(PDO::FETCH_OBJ);  
-        
+        $player = $query->fetchAll(PDO::FETCH_OBJ);    
         return $player ;
-    
-
     }
 
       public function getAll() {

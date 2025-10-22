@@ -26,6 +26,19 @@ ademas cada equipo tendra un nombre, un pais, una ciudad y su año  de fundacion
 [SQL](./database/futbol.sql)
 
 
+
+## como desplegar el sitio web con apache y msql
+
+ Instalar XAMPP con los paquetes de Apache (nos dará acceso al servidor web) y MySQL ( nos permite crear y manejar bases de datos).
+
+2- Guardar el proyecto "TPE_WEB2" o cualquiera que quieras abrir dentro de la carpeta "htdocs" donde instalaste el XAMPP (\xampp\htdocs\TPE_WEB2)
+
+3- Abrir el programa XAMPP, y dentro del Panel de Control activar los modulos "Apache" y "MySQL" para que entren en funcionamiento
+
+4- Con MySQL activado ingresar en 'http://localhost/phpmyadmin' crear una base de datos e importar la base de datos del proyecto. *Asegurarse que dentro del archivo 'config.php' coincidan los nombres de la base de datos
+
+5- Ingresar en http://localhost/TPE_WEB2/ para acceder a la aplicacion.
+
 ## usuario y contraseña para acceder
 
 usuario: admin
