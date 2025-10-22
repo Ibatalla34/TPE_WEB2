@@ -9,7 +9,8 @@ class PlayerView{
          require_once './templates/listar.jugadores.phtml';
     }
 
-    public function agregarJugador($user){
+    public function agregarJugador($user,$equipos){
+         $count= count($equipos);
           require_once './templates/form.add.player.phtml';
     }
  
@@ -18,7 +19,7 @@ class PlayerView{
           require_once './templates/datos.jugador.phtml';
     }
 
-    public function editar($player,$user){
+    public function editar($player,$user,$equipos){
         require_once './templates/form.edit.player.phtml';
     }
 

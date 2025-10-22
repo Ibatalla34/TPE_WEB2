@@ -51,7 +51,7 @@ class EquipoController
         $pais = $_POST['pais'];
         $fecha = $_POST['fundacion'];
         $ciudad = $_POST['ciudad'];
-        $id = $this->model->insert($nombre,$pais,$fecha,$ciudad);
+        $this->model->insert($nombre,$pais,$fecha,$ciudad);
         header('Location: ' . BASE_URL);
     }
 

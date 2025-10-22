@@ -12,12 +12,11 @@
         <div class="form-group">
          <label>Equipo</label>
         <select class="form-select form-select-sm" aria-label="Small select example" required name="equipo">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-             <option value="5">5</option>
-              <option value="6">6</option>
+            <?php foreach ($equipos as $equipo){ ?>
+                 <option value=" <?php echo ($equipo->id) ?>"><?php echo($equipo->nombre) ?></option>
+              <?php
+            } ?>
+           
         </select>
         </div>
         <div class="form-group">

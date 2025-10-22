@@ -38,31 +38,32 @@ class PlayerController{
         $nacimiento = $_POST['nacimiento'];
         $altura = $_POST['altura'];
 
-        $id = $this-> model->insert($equipo,$nombre,$pais,$pieBueno,$posicion,$nacimiento,$altura);
+         $this-> model->insert($equipo,$nombre,$pais,$pieBueno,$posicion,$nacimiento,$altura);
 
          header('Location: ' . BASE_URL);
      }
 
 
-     function eliminarjugador($id){
-
-      $player = $this->model->get($id);
+     function eliminarjugador($request){
+       
+      $player = $this->model->get($request->id);
       if (!$player) {
-            return $this->view->showError("No existe la tarea con el id=$id");
+            return $this->view->showError("No existe el jugador con el id=$request->id");
         }
-
-       $this->model->deletePlayer($id); 
+        $this->model->deletePlayer($request->id); 
 
        header('Location: ' . BASE_URL);
      }
 
      function agregarJugador($request){
-      $this->view->agregarJugador($request->user);
+      $equipos= $this->model->darEquipos();
+      $this->view->agregarJugador($request->user,$equipos);
      }
 
      function editarJugador($request){
          $player = $this->model->get($request->id);
-         $this->view->editar($player,$request->user);
+          $equipos= $this->model->darEquipos();
+         $this->view->editar($player,$request->user,$equipos);
      }
      function editPlayer($id){
        if(!isset($_POST['nombre']) || empty($_POST['nombre'])||!isset($_POST['pais']) || empty($_POST['pais'])||!isset($_POST['altura']) || empty($_POST['altura'])){

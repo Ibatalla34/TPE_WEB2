@@ -6,16 +6,16 @@
         <div class="col-9">
             <div class="form-group">
                 <label>nombre</label>
-                <input required name="nombre" type="text" class="form-control" value=" <?php echo($player[0]->nombre)?>">
+                <input required name="nombre" type="text" class="form-control" value=" <?php echo($player[0]->nombre_j)?>">
             </div>
         </div>
         <div class="form-group">
          <label>Equipo</label>
         <select class="form-select form-select-sm" aria-label="Small select example" required name="equipo"? value=" <?php echo($player[0]->id_equipos)?>">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+          <?php foreach ($equipos as $equipo){ ?>
+                 <option value=" <?php echo ($equipo->id) ?>"><?php echo($equipo->nombre) ?></option>
+              <?php
+            } ?>
         </select>
         </div>
         <div class="form-group">
@@ -28,7 +28,7 @@
         </div>
         <div>
         <label>Pais</label>
-        <input required name="pais" type="text" value="<?php echo($player[0]->pais)?>" >
+        <input required name="pais" type="text" value="<?php echo($player[0]->pais_j)?>" >
         </div>
         <div class="form-group">
         </select>

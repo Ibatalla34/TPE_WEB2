@@ -8,17 +8,21 @@ class PlayerModel{
     }
 
       public function get($id) {
-        $query = $this->db->prepare('SELECT * FROM jugadores WHERE id = ?');
+       
+        $query = $this->db->prepare("SELECT j.id, j.nombre as nombre_j , j.pais as pais_j ,j.pierna_buena , j.posicion, j.fecha_nacimiento, j.altura , e.nombre as nombre_e FROM jugadores j INNER JOIN equipos e ON j.id_equipos = e.id WHERE j.id = ? ");
         $query->execute([$id]);
-        $player = $query->fetch(PDO::FETCH_OBJ);
-        return [$player];
+        $player = $query->fetchAll(PDO::FETCH_OBJ);  
+        
+        return $player ;
+    
+
     }
 
       public function getAll() {
-        $query = $this->db->prepare('SELECT * FROM jugadores');
+       $query = $this->db->prepare("SELECT j.id, j.nombre as nombre_j , j.pais as pais_j ,j.pierna_buena , j.posicion, j.fecha_nacimiento, j.altura , e.nombre as nombre_e FROM jugadores j INNER JOIN equipos e ON j.id_equipos = e.id ");
         $query->execute();
-        $players = $query->fetchAll(PDO::FETCH_OBJ);
-        return $players;
+        $player = $query->fetchAll(PDO::FETCH_OBJ);  
+        return $player ;
     }
     public function selectByTeam ($equipo) {
       $query = $this->db->prepare('SELECT * FROM jugadores WHERE id_equipos = ?');
@@ -33,7 +37,7 @@ class PlayerModel{
     }
 
     public function deletePlayer($id){
-      $query = $this->db->prepare("DELETE from jugadores where id=?");
+      $query = $this->db->prepare("DELETE FROM  jugadores where id=?");
       $query-> execute([$id]);
     }
 
@@ -42,8 +46,15 @@ class PlayerModel{
       $query->execute([$equipo,$nombre,$pais,$pieBueno,$posicion,$nacimiento,$altura, $id]);
     }
 
+    public function darEquipos(){
+          $query = $this->db->prepare("SELECT * FROM equipos");
+          $query->execute();
+          $teams = $query->fetchAll(PDO::FETCH_OBJ);
+          return $teams;
+    }
+
   }
-  
+   
   
 
 
